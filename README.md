@@ -13,3 +13,7 @@ git config \
 ```
 
 and set `user` & `personal_access_token` in environment variables
+
+## TODO
+
+1. Add collection of email addresses via a P2P network, to which the developer will have access through asymmetric encryption.
