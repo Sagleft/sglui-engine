@@ -88,3 +88,9 @@ to check dependencies:
 ```bash
 wails doctor
 ```
+
+## build
+
+```bash
+wails build -platform linux/amd64
+```
