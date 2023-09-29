@@ -14,4 +14,5 @@ require (
 	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/sagleft/simple-cron v1.4.1 // indirect
 	golang.org/x/sys v0.3.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 )
