@@ -1,24 +1,24 @@
 package license
 
 import (
+	"encoding/json"
 	"fmt"
+	"time"
 
 	swissknife "github.com/Sagleft/swiss-knife"
 	"github.com/hyperboloide/lk"
 )
 
+const dateFormat = "2006-01-02"
+
 type License interface {
 	Encode() (string, error)
 	Save(filepath string) error
-	Load(filepath string) (License, error)
+	Validate(appPublicKey string) error
 }
 
 type defaultLicense struct {
 	licenseData *lk.License
-}
-
-func CreateLicenseFromStruct(lc *lk.License) License {
-	return &defaultLicense{licenseData: lc}
 }
 
 func (l *defaultLicense) Save(filepath string) error {
@@ -33,20 +33,6 @@ func (l *defaultLicense) Save(filepath string) error {
 	return nil
 }
 
-func (l *defaultLicense) Load(filepath string) (License, error) {
-	licData, err := swissknife.ReadFileToString(filepath)
-	if err != nil {
-		return nil, fmt.Errorf("read license file: %w", err)
-	}
-
-	lc, err := lk.LicenseFromB32String(licData)
-	if err != nil {
-		return nil, fmt.Errorf("parse license: %w", err)
-	}
-
-	return CreateLicenseFromStruct(lc), nil
-}
-
 func (l *defaultLicense) Encode() (string, error) {
 	// the b32 representation of our license
 	// this is what you give to your customer.
@@ -56,4 +42,30 @@ func (l *defaultLicense) Encode() (string, error) {
 	}
 
 	return licenseB32, nil
+}
+
+func (l *defaultLicense) Validate(appPublicKey string) error {
+	publicKey, err := lk.PublicKeyFromB32String(appPublicKey)
+	if err != nil {
+		return fmt.Errorf("decode public key: %w", err)
+	}
+
+	if ok, err := l.licenseData.Verify(publicKey); err != nil {
+		return fmt.Errorf("verify license: %w", err)
+	} else if !ok {
+		return fmt.Errorf("invalid license signature")
+	}
+
+	var uData UserData
+	if err := json.Unmarshal(l.licenseData.Data, &uData); err != nil {
+		return fmt.Errorf("decode license: %w", err)
+	}
+
+	if uData.RegisteredUntil.Before(time.Now()) {
+		return fmt.Errorf(
+			"license expired on: %s",
+			uData.RegisteredUntil.Format(dateFormat),
+		)
+	}
+	return nil
 }
