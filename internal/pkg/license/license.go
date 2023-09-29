@@ -17,6 +17,10 @@ type defaultLicense struct {
 	licenseData *lk.License
 }
 
+func CreateLicenseFromStruct(lc *lk.License) License {
+	return &defaultLicense{licenseData: lc}
+}
+
 func (l *defaultLicense) Save(filepath string) error {
 	licData, err := l.Encode()
 	if err != nil {
@@ -30,9 +34,17 @@ func (l *defaultLicense) Save(filepath string) error {
 }
 
 func (l *defaultLicense) Load(filepath string) (License, error) {
-	//lk.LicenseFromB32String()
+	licData, err := swissknife.ReadFileToString(filepath)
+	if err != nil {
+		return nil, fmt.Errorf("read license file: %w", err)
+	}
 
-	return nil, nil // TODO
+	lc, err := lk.LicenseFromB32String(licData)
+	if err != nil {
+		return nil, fmt.Errorf("parse license: %w", err)
+	}
+
+	return CreateLicenseFromStruct(lc), nil
 }
 
 func (l *defaultLicense) Encode() (string, error) {

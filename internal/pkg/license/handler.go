@@ -3,7 +3,6 @@ package license
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 
 	"github.com/hyperboloide/lk"
 )
@@ -37,11 +36,10 @@ func (h *defaultHandler) GrantUserAccess(data UserData) (License, error) {
 	}
 
 	// generate license with the private key and the document
-	l := &defaultLicense{}
-	l.licenseData, err = lk.NewLicense(h.licensePrivateKey, licBytes)
+	lc, err := lk.NewLicense(h.licensePrivateKey, licBytes)
 	if err != nil {
-		log.Fatal(err)
-
+		return nil, fmt.Errorf("create license: %w", err)
 	}
-	return l, nil
+
+	return CreateLicenseFromStruct(lc), nil
 }
