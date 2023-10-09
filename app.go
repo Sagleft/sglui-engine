@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"tool/pkg/logic"
 )
 
 // App struct
@@ -26,6 +25,7 @@ func (a *App) startup(ctx context.Context) {
 func (a *App) Greet(name string) string {
 	return fmt.Sprintf(
 		"Result: %s",
-		logic.Test(),
+		"hello, world",
+		//logic.Test(),
 	)
 }
