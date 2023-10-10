@@ -48,6 +48,12 @@ install wails
 go install github.com/wailsapp/wails/v2/cmd/wails@latest
 ```
 
+to check dependencies:
+
+```bash
+wails doctor
+```
+
 ```
 # Wails Dependencies
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -71,22 +77,10 @@ sudo aptitude install libgtk-3-dev
 
 If `libgtk-3-dev` will not be installed, then skip the first sentence of `aptitude` and accept the second with downgrade of the associated libraries.
 
-## build dev version & test
-
-```bash
-cd web
-```
-
-then run
+## run dev version
 
 ```bash
 wails dev
-```
-
-to check dependencies:
-
-```bash
-wails doctor
 ```
 
 ## build for linux
