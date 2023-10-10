@@ -1,5 +1,5 @@
-# freemium-engine
-Engine for creating Freemium applications with sales automation and a serverless model
+# sglui-engine
+Engine for parametric creation of applications with UI in Golang 
 
 ## dependencies
 
@@ -7,39 +7,9 @@ Engine for creating Freemium applications with sales automation and a serverless
 2. Wails (GUI lib)
 3. NPM 9.5.1+
 
-## how to import private lib to another project
+## how to install dependencies
 
-add this to `.gitconfig` file:
-
-```bash
-git config \
- --global \
- url."https://${user}:${personal_access_token}@github.com".insteadOf \
- "https://github.com"
-```
-
-and set `user` & `personal_access_token` in environment variables
-
-## TODO
-
-1. Come up with something with the private key so that it is not in the code. Maybe it can be generated and stored somehow based on the data of the current device.
-2. add crypto payment lib
-3. build app engine with logic module
-
-## TODO ideas
-
-1. Add collection of email addresses via a P2P network, to which the developer will have access through asymmetric encryption.
-
-Install libwebkitgtk on Ubuntu
-
-```bash
-sudo apt-get update
-sudo apt-get install -qq software-properties-common
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
-sudo add-apt-repository 'deb [trusted=yes] http://cz.archive.ubuntu.com/ubuntu bionic main universe'
-sudo apt-get update
-sudo apt-get install -qq libwebkitgtk-1.0-0
-```
+Let's look at the example of installation on Ubuntu:
 
 install wails
 
@@ -47,11 +17,13 @@ install wails
 go install github.com/wailsapp/wails/v2/cmd/wails@latest
 ```
 
-to check dependencies:
+to check other dependencies:
 
 ```bash
 wails doctor
 ```
+
+result example:
 
 ```
 # Wails Dependencies
