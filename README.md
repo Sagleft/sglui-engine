@@ -23,9 +23,8 @@ and set `user` & `personal_access_token` in environment variables
 ## TODO
 
 1. Come up with something with the private key so that it is not in the code. Maybe it can be generated and stored somehow based on the data of the current device.
-2. add gui lib
-3. add crypto payment lib
-4. build app engine with logic module
+2. add crypto payment lib
+3. build app engine with logic module
 
 ## TODO ideas
 
