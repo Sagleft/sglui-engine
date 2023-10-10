@@ -1,6 +1,8 @@
 # sglui-engine
 Engine for parametric creation of applications with UI in Golang 
 
+![screenshot](resources/screenshot.png)
+
 ## dependencies
 
 1. Go 1.8+
