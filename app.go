@@ -15,7 +15,7 @@ type App struct {
 	ctx context.Context
 }
 
-//go:embed all:frontend/dist
+//go:embed all:engine/dist
 var assets embed.FS
 
 func main() {
