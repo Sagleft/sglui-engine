@@ -1,7 +1,6 @@
 package app
 
-type App interface {
-}
+type App interface{}
 
 type def struct {
 	cfg AppConfig
