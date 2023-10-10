@@ -21,7 +21,7 @@ func GetDefaultConfig() Config {
 func loadAndSaveDefaultConfig() (Config, error) {
 	engineCfg := GetDefaultConfig()
 
-	if err := swissknife.SaveStructToJSONFile(
+	if err := swissknife.SaveStructToJSONFileIndent(
 		engineCfg,
 		consts.EngineConfigFilePath,
 	); err != nil {

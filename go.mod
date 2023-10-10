@@ -3,7 +3,7 @@ module tool
 go 1.18
 
 require (
-	github.com/Sagleft/swiss-knife v1.6.0
+	github.com/Sagleft/swiss-knife v1.7.0
 	github.com/wailsapp/wails/v2 v2.6.0
 )
 
