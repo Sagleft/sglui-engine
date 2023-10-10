@@ -24,3 +24,4 @@ example/license.dat
 build/bin
 node_modules
 frontend/dist
+frontend/package.json.md5
