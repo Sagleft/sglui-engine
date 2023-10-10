@@ -2,10 +2,15 @@ module tool
 
 go 1.18
 
-require github.com/wailsapp/wails/v2 v2.6.0
+require (
+	github.com/Sagleft/swiss-knife v1.6.0
+	github.com/wailsapp/wails/v2 v2.6.0
+)
 
 require (
 	github.com/bep/debounce v1.2.1 // indirect
+	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be // indirect
+	github.com/fatih/color v1.14.1 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/jchv/go-winloader v0.0.0-20210711035445-715c2860da7e // indirect
@@ -19,6 +24,7 @@ require (
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
+	github.com/sagleft/simple-cron v1.4.1 // indirect
 	github.com/samber/lo v1.38.1 // indirect
 	github.com/tkrajina/go-reflector v0.5.6 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
