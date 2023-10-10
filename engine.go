@@ -52,7 +52,7 @@ func (e *defaultEngine) startup(ctx context.Context) {
 
 func (e *defaultEngine) runEnginge(engineCfg engine.Config) error {
 	if err := wails.Run(&options.App{
-		Title:  "App name",
+		Title:  engineCfg.Window.Title,
 		Width:  engineCfg.Window.Width,
 		Height: engineCfg.Window.Height,
 		AssetServer: &assetserver.Options{

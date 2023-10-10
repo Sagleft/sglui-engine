@@ -7,4 +7,5 @@ type def struct {
 	cfg AppConfig
 }
 
+// AppConfig - settings that apply exclusively to this package
 type AppConfig struct{}

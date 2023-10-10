@@ -6,8 +6,9 @@ type Config struct {
 }
 
 type WindowConfig struct {
-	Width  int `json:"width"`
-	Height int `json:"height"`
+	Title  string `json:"title"`
+	Width  int    `json:"width"`
+	Height int    `json:"height"`
 }
 
 type PageData struct {
