@@ -1,20 +1,25 @@
 package app
 
-type App interface{}
+import (
+	"tool/internal/pkg/engine"
+)
 
-type def struct {
-	cfg AppConfig
+type App interface {
+	GetPages() []engine.Page
+	GetDefaultPageTag() string
+
+	SetEventHandler(engine.EventHandler)
 }
 
-type AppConfig struct {
-	Window WindowConfig `json:"window"`
+func (a *def) GetPages() []engine.Page {
+	// TODO
+	return nil
 }
 
-type WindowConfig struct {
-	Width  int `json:"width"`
-	Height int `json:"height"`
+func (a *def) GetDefaultPageTag() string {
+	return "" // TODO
 }
 
-func New(config AppConfig) (App, error) {
-	return &def{cfg: config}, nil
+func (a *def) SetEventHandler(e engine.EventHandler) {
+	a.e = e
 }

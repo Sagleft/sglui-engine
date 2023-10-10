@@ -5,9 +5,8 @@ import (
 	"embed"
 	"fmt"
 	"tool/internal/pkg/app"
-	"tool/internal/pkg/consts"
+	"tool/internal/pkg/engine"
 
-	swissknife "github.com/Sagleft/swiss-knife"
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
@@ -29,21 +28,17 @@ func NewEngine() (Engine, error) {
 }
 
 func (e *defaultEngine) CreateApp() (app.App, error) {
-	var cfg app.AppConfig
-
-	if err := swissknife.ParseStructFromJSONFile(
-		consts.AppConfigFilePath,
-		&cfg,
-	); err != nil {
-		return nil, fmt.Errorf("read config file: %w", err)
+	engineCfg, err := engine.LoadConfig()
+	if err != nil {
+		return nil, fmt.Errorf("load config: %w", err)
 	}
 
-	a, err := app.New(cfg)
+	a, err := app.New(engineCfg.App)
 	if err != nil {
 		return nil, fmt.Errorf("create app: %w", err)
 	}
 
-	if err := e.runApp(); err != nil {
+	if err := e.runEnginge(engineCfg); err != nil {
 		return nil, fmt.Errorf("run app: %w", err)
 	}
 	return a, nil
@@ -55,16 +50,17 @@ func (e *defaultEngine) startup(ctx context.Context) {
 	e.ctx = ctx
 }
 
-func (e *defaultEngine) runApp() error {
+func (e *defaultEngine) runEnginge(engineCfg engine.Config) error {
 	if err := wails.Run(&options.App{
 		Title:  "App name",
-		Width:  1280,
-		Height: 720,
+		Width:  engineCfg.Window.Width,
+		Height: engineCfg.Window.Height,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
-		OnStartup: e.startup,
-		Bind:      []interface{}{e},
+		OnStartup:                e.startup,
+		Bind:                     []interface{}{e},
+		EnableDefaultContextMenu: false,
 	}); err != nil {
 		return fmt.Errorf("run wails app: %w", err)
 	}

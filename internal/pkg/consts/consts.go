@@ -1,5 +1,8 @@
 package consts
 
+const EngineConfigFilePath = "config.json"
+
 const (
-	AppConfigFilePath = "config.json"
+	DefaultWindowWidth  = 1280
+	DefaultWindowHeight = 720
 )
