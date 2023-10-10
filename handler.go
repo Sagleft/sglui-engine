@@ -59,9 +59,8 @@ func (a *WailsHandler) run() error {
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
-		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
-		OnStartup:        a.startup,
-		Bind:             []interface{}{a},
+		OnStartup: a.startup,
+		Bind:      []interface{}{a},
 	}); err != nil {
 		return fmt.Errorf("run wails app: %w", err)
 	}
