@@ -29,7 +29,8 @@ func main() {
 
 	// Create application with options
 	if err := h.run(); err != nil {
-		// TODO: update error handler?
+		// TBD: test & update error handler
+		// https://github.com/Sagleft/sglui-engine/issues/1
 		println("run app:", err.Error())
 	}
 }
