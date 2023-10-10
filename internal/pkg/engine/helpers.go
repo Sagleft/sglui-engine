@@ -12,6 +12,7 @@ func GetDefaultConfig() Config {
 	return Config{
 		App: struct{}{},
 		Window: WindowConfig{
+			Title:  consts.DefaultWindowTitle,
 			Width:  consts.DefaultWindowWidth,
 			Height: consts.DefaultWindowHeight,
 		},
