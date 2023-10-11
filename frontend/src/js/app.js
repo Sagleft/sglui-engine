@@ -1,7 +1,7 @@
+import './../css/app.css';
 import './pace.min.js';
 import './../css/loading.css';
 
-import './../css/app.css';
 import './../css/normalize.css';
 import './../css/uikit.min.css';
 
@@ -11,6 +11,11 @@ import './uikit-icons.min.js';
 import '../../wailsjs/go/consts/Constants';
 
 import {GetPages} from '../../wailsjs/go/app/application';
+
+// show app container after loading
+document.addEventListener("DOMContentLoaded", function(event) { 
+    document.getElementById('app-container').style.display = 'block';
+});
 
 window.getPages = function() {
     try {
