@@ -2,7 +2,7 @@ package app
 
 import "tool/internal/pkg/engine"
 
-type def struct {
+type application struct {
 	e   engine.EventHandler
 	cfg AppConfig
 }

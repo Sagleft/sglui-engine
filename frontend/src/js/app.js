@@ -4,7 +4,7 @@ import './../css/uikit.min.css';
 import './uikit.min.js';
 import './uikit-icons.min.js';
 
-// import {Greet} from '../wailsjs/go/main/App';
+import {GetPages} from '../../wailsjs/go/app/application';
 
 //let nameElement = document.getElementById("name");
 //nameElement.focus();

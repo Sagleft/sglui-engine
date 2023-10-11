@@ -11,6 +11,6 @@ type App interface {
 	SetEventHandler(engine.EventHandler)
 }
 
-func (a *def) SetEventHandler(e engine.EventHandler) {
+func (a *application) SetEventHandler(e engine.EventHandler) {
 	a.e = e
 }

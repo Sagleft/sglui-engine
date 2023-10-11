@@ -4,13 +4,13 @@ import "tool/internal/pkg/engine"
 
 const mainPageTag = "main"
 
-func (a *def) GetPages() engine.Pages {
+func (a *application) GetPages() engine.Pages {
 	return engine.Pages{
 		a.getMainPage(),
 	}
 }
 
-func (a *def) getMainPage() *engine.Page {
+func (a *application) getMainPage() *engine.Page {
 	btn1 := engine.NewButton(engine.ButtonData{
 		Label: "Test btn 1",
 		Tag:   "btn1",
@@ -31,6 +31,6 @@ func (a *def) getMainPage() *engine.Page {
 	})
 }
 
-func (a *def) GetDefaultPageTag() string {
+func (a *application) GetDefaultPageTag() string {
 	return mainPageTag
 }

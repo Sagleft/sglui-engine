@@ -11,5 +11,5 @@ func New(cfgRaw any) (App, error) {
 		return nil, fmt.Errorf("convert app config: %w", err)
 	}
 
-	return &def{cfg: cfg}, nil
+	return &application{cfg: cfg}, nil
 }
