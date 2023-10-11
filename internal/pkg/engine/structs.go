@@ -25,6 +25,8 @@ type Page struct {
 	OnLeave  func()
 }
 
+type Pages []*Page
+
 type ButtonData struct {
 	Label string `json:"label"`
 	Tag   string `json:"tag"`
@@ -36,9 +38,11 @@ type Button struct {
 	OnPressed func()
 }
 
+type Buttons []*Button
+
 type Sidebar struct {
-	Title             string    `json:"title"`
-	Tag               string    `json:"tag"`
-	Buttons           []*Button `json:"buttons"`
-	LogoImageFilename string    `json:"logo"`
+	Title             string  `json:"title"`
+	Tag               string  `json:"tag"`
+	Buttons           Buttons `json:"buttons"`
+	LogoImageFilename string  `json:"logo"`
 }

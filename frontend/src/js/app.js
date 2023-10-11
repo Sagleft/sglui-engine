@@ -4,14 +4,6 @@ import './../css/uikit.min.css';
 import './uikit.min.js';
 import './uikit-icons.min.js';
 
-var alert = require('alert');
-
-function debug(info = '') {
-    document.getElementById("debug-log").innerHTML = info;
-}
-
-debug("Current directory:", __dirname);
-
 // import {Greet} from '../wailsjs/go/main/App';
 
 //let nameElement = document.getElementById("name");

@@ -38,7 +38,7 @@ func (e *defaultEngine) CreateApp() (app.App, error) {
 		return nil, fmt.Errorf("create app: %w", err)
 	}
 
-	if err := e.runEnginge(engineCfg); err != nil {
+	if err := e.runEnginge(engineCfg, a); err != nil {
 		return nil, fmt.Errorf("run app: %w", err)
 	}
 	return a, nil
@@ -50,7 +50,7 @@ func (e *defaultEngine) startup(ctx context.Context) {
 	e.ctx = ctx
 }
 
-func (e *defaultEngine) runEnginge(engineCfg engine.Config) error {
+func (e *defaultEngine) runEnginge(engineCfg engine.Config, a app.App) error {
 	if err := wails.Run(&options.App{
 		Title:  engineCfg.Window.Title,
 		Width:  engineCfg.Window.Width,
@@ -59,7 +59,7 @@ func (e *defaultEngine) runEnginge(engineCfg engine.Config) error {
 			Assets: assets,
 		},
 		OnStartup:                e.startup,
-		Bind:                     []interface{}{e},
+		Bind:                     []interface{}{a},
 		EnableDefaultContextMenu: false,
 	}); err != nil {
 		return fmt.Errorf("run wails app: %w", err)

@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
+	"tool/internal/pkg/app"
 )
 
 // WailsHandler ..
 type WailsHandler struct {
 	engine Engine
+	app    app.App
 }
 
 func main() {
@@ -17,7 +19,7 @@ func main() {
 	}
 
 	// Create application with options
-	_, err = h.engine.CreateApp()
+	h.app, err = h.engine.CreateApp()
 	if err != nil {
 		// TBD: test & update error handler
 		// https://github.com/Sagleft/sglui-engine/issues/1
@@ -35,11 +37,13 @@ func NewHandler() (*WailsHandler, error) {
 	return &WailsHandler{engine: e}, nil
 }
 
-// Greet returns a greeting for the given name
-func (a *WailsHandler) Greet(name string) string {
+// GetPages ..
+/*func (h *WailsHandler) GetPages() string {
+	h.app.GetPages()
+
 	return fmt.Sprintf(
 		"Result: %s",
 		"hello, world",
 		//logic.Test(),
 	)
-}
+}*/
