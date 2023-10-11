@@ -14,14 +14,14 @@ func (a *application) GetPages() engine.Pages {
 }
 
 func (a *application) getMainPage() *engine.Page {
-	btn1 := engine.NewButton(engine.ButtonData{
+	btn1 := a.createButton(engine.ButtonData{
 		Label: "Test btn 1",
 		Tag:   "btn1",
-	}, a.e)
-	btn2 := engine.NewButton(engine.ButtonData{
+	})
+	btn2 := a.createButton(engine.ButtonData{
 		Label: "Test btn 1",
 		Tag:   "btn2",
-	}, a.e)
+	})
 
 	sidebarBtns := engine.Buttons{btn1, btn2}
 	sidebar := engine.NewSidebar(sidebarBtns)
