@@ -67,3 +67,7 @@ wails build -platform linux/amd64
 ```bash
 wails build -platform windows/amd64
 ```
+
+# TODO
+
+1. add dark theme switcher

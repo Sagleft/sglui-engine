@@ -1,8 +1,15 @@
 body {
-    background-color: rgb(236, 236, 236);
+    /*background-color: rgb(236, 236, 236);*/
+    background-color: #323c46;
+    color: #e4e7ec;
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+    color: white!important;
 }
 
 .sidebar {
@@ -12,12 +19,44 @@ body {
     box-sizing: border-box;
     width: 240px !important;
     padding: 40px 40px 60px 40px;
-    border-right: 1px #e5e5e5 solid;
+    border-right: 1px #3f4953 solid;
     text-align: center;
     overflow: auto;
 }
 
 .main-bar {
-    padding-left: 240px;
+    margin-left: 240px;
     padding-top: 25px;
+    /*background-color: white;*/
+}
+
+.uk-button-primary {
+    background: rgb(0, 116, 187);
+    background: -moz-linear-gradient(90deg, rgba(0,116,187,1) 0%, rgba(30,162,216,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(0,116,187,1) 0%, rgba(30,162,216,1) 100%);
+    background: linear-gradient(90deg, rgba(0,116,187,1) 0%, rgba(30,162,216,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0074BB",endColorstr="#1EA2D8",GradientType=1); 
+
+    border: 0!important;
+    font-weight: 500;
+}
+
+.uk-button-primary:hover {
+    background: rgb(0,129,208);
+    background: -moz-linear-gradient(90deg, rgba(0,129,208,1) 0%, rgba(64,188,239,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(0,129,208,1) 0%, rgba(64,188,239,1) 100%);
+    background: linear-gradient(90deg, rgba(0,129,208,1) 0%, rgba(64,188,239,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0081d0",endColorstr="#40bcef",GradientType=1); 
+}
+
+.uk-button-primary:active {
+    background: rgb(0,102,165);
+    background: -moz-linear-gradient(90deg, rgba(0,102,165,1) 0%, rgba(43,149,192,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(0,102,165,1) 0%, rgba(43,149,192,1) 100%);
+    background: linear-gradient(90deg, rgba(0,102,165,1) 0%, rgba(43,149,192,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0066a5",endColorstr="#2b95c0",GradientType=1); 
+}
+
+.uk-list-divider>:nth-child(n+2) {
+    border-top: 1px solid #6b6b6b;
 }
