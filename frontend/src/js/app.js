@@ -8,8 +8,6 @@ import './../css/uikit.min.css';
 import './uikit.min.js';
 import './uikit-icons.min.js';
 
-import '../../wailsjs/go/consts/Constants';
-
 import {GetPages} from '../../wailsjs/go/app/application';
 
 // show app container after loading
@@ -17,19 +15,64 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById('app-container').style.display = 'block';
 });
 
+function handlePages(pages) {
+    if(pages == undefined) {
+        console.log("pages is not set");
+        return
+    }
+
+    if(pages.length == 0) {
+        console.log("0 pages found");
+        return
+    }
+
+    pages.forEach((page) => {
+        handlePage(page);
+    });
+}
+
+function handlePage(page) {
+    // TODO: find main page by tag
+
+    page.elements.forEach((element) => {
+         console.log("handle element", element);
+         handleElement(element);
+    });
+}
+
+function handleElement(element) {
+    if(element.type == "sidebar") {
+        // create sidebar
+        var sidebar = document.createElement('div');
+        sidebar.className = 'sidebar';
+        document.body.appendChild(sidebar);
+
+        // create sidebar title
+        if(element.data.title != '') {
+            var sidebarTitle = document.createElement('h4');
+            sidebarTitle.innerHTML = element.data.title;
+            sidebar.appendChild(sidebarTitle);
+        }
+
+        // create list
+        var sidebarList = document.createElement('ul');
+        sidebarList.className = 'uk-list uk-list-divider';
+        sidebar.appendChild(sidebarList);
+
+        // add buttons
+        element.data.buttons.forEach((button) => {
+            var btn = document.createElement('button');
+            btn.className = 'uk-button uk-button-primary uk-border-rounded';
+            btn.innerHTML = button.data.label;
+            sidebarList.appendChild(btn);
+        });
+    }
+}
+
 window.getPages = function() {
     try {
         GetPages().then((pages) => {
-
-            if(pages.length == 0) {
-                console.log("0 pages found");
-                return
-            }
-
-            pages.forEach((page) => {
-                console.log(page);
-            });
-
+            handlePages(pages);
         }).catch((err) => {
             console.error("handle result", err);
         });
