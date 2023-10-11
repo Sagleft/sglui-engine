@@ -1,0 +1,16 @@
+body {
+    background-color: #323c46;
+    color: #e4e7ec;
+}
+
+h1, h2, h3, h4 {
+    color: white!important;
+}
+
+.sidebar {
+    border-right: 1px #3f4953 solid;
+}
+
+.uk-list-divider>:nth-child(n+2) {
+    border-top: 1px solid #6b6b6b;
+}

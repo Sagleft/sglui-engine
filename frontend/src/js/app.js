@@ -1,4 +1,5 @@
 import './../css/app.css';
+import './../css/theme/dark.css';
 import './pace.min.js';
 import './../css/loading.css';
 
@@ -68,7 +69,26 @@ function handleElement(element) {
             btn.innerHTML = button.data.label;
             sidebarList.appendChild(btn);
         });
+
+        // add theme switcher
+        //sidebar.appendChild(getThemeSwitcher());
     }
+}
+
+function getThemeSwitcher() {
+    var container = document.createElement('div');
+    var switcher = document.createElement('input');
+
+    switcher.type = "checkbox";
+    switcher.name = 'theme-switcher';
+    switcher.id   = 'theme-switcher-btn';
+    container.appendChild(switcher);
+
+    var label = document.createElement('label');
+    label.htmlFor = switcher.id;
+    container.appendChild(label);
+
+    return container;
 }
 
 function renderApp() {
