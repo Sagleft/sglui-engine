@@ -27,3 +27,4 @@ frontend/dist
 frontend/package.json.md5
 frontend/wailsjs
 config.json
+build_win.sh

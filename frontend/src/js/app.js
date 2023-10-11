@@ -10,8 +10,10 @@ import './uikit-icons.min.js';
 
 import {GetPages} from '../../wailsjs/go/app/application';
 
-// show app container after loading
 document.addEventListener("DOMContentLoaded", function(event) { 
+    renderApp();
+
+    // show app container after loading
     document.getElementById('app-container').style.display = 'block';
 });
 
@@ -69,7 +71,7 @@ function handleElement(element) {
     }
 }
 
-window.getPages = function() {
+function renderApp() {
     try {
         GetPages().then((pages) => {
             handlePages(pages);
