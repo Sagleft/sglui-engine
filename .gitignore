@@ -23,6 +23,6 @@ example/license.dat
 
 build/bin
 node_modules
-engine/dist
-engine/package.json.md5
+frontend/dist
+frontend/package.json.md5
 config.json
