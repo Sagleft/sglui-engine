@@ -5,7 +5,6 @@ import (
 	"embed"
 	"fmt"
 	"tool/internal/pkg/app"
-	"tool/internal/pkg/consts"
 	"tool/internal/pkg/engine"
 
 	"github.com/wailsapp/wails/v2"
@@ -61,8 +60,7 @@ func (e *defaultEngine) runEnginge(engineCfg engine.Config, a app.App) error {
 		},
 		OnStartup: e.startup,
 		Bind: []interface{}{
-			a,                    // main application
-			consts.NewProvider(), // engine constants to work with JS
+			a, // main application
 		},
 		//EnableDefaultContextMenu: false,
 	}); err != nil {
