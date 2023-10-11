@@ -25,5 +25,5 @@ build/bin
 node_modules
 frontend/dist
 frontend/package.json.md5
-config.json
 frontend/wailsjs
+config.json
