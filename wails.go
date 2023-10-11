@@ -5,6 +5,7 @@ import (
 	"embed"
 	"fmt"
 	"tool/internal/pkg/app"
+	"tool/internal/pkg/consts"
 	"tool/internal/pkg/engine"
 
 	"github.com/wailsapp/wails/v2"
@@ -58,9 +59,12 @@ func (e *defaultEngine) runEnginge(engineCfg engine.Config, a app.App) error {
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
-		OnStartup:                e.startup,
-		Bind:                     []interface{}{a},
-		EnableDefaultContextMenu: false,
+		OnStartup: e.startup,
+		Bind: []interface{}{
+			a,                    // main application
+			consts.NewProvider(), // engine constants to work with JS
+		},
+		//EnableDefaultContextMenu: false,
 	}); err != nil {
 		return fmt.Errorf("run wails app: %w", err)
 	}

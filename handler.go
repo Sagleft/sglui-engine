@@ -36,14 +36,3 @@ func NewHandler() (*WailsHandler, error) {
 
 	return &WailsHandler{engine: e}, nil
 }
-
-// GetPages ..
-/*func (h *WailsHandler) GetPages() string {
-	h.app.GetPages()
-
-	return fmt.Sprintf(
-		"Result: %s",
-		"hello, world",
-		//logic.Test(),
-	)
-}*/

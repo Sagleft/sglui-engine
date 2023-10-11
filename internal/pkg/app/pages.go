@@ -1,6 +1,9 @@
 package app
 
-import "tool/internal/pkg/engine"
+import (
+	"tool/internal/pkg/consts"
+	"tool/internal/pkg/engine"
+)
 
 const mainPageTag = "main"
 
@@ -22,12 +25,17 @@ func (a *application) getMainPage() *engine.Page {
 
 	sidebarBtns := engine.Buttons{btn1, btn2}
 	sidebar := engine.NewSidebar(sidebarBtns)
+	sidebar.Title = "My sidebar"
+	sidebar.Tag = "sidebar1"
 
 	return engine.NewPage(engine.PageData{
 		Title: "Main Page",
 		Tag:   mainPageTag,
-	}, a.e).SetElements([]interface{}{
-		sidebar,
+	}, a.e).SetElements(engine.Elements{
+		engine.Element{
+			Type: consts.TypeSidebar,
+			Data: sidebar,
+		},
 	})
 }
 

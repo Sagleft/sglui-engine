@@ -12,16 +12,16 @@ type EventHandler interface {
 }
 
 func NewPage(data PageData, e EventHandler) *Page {
-	return &Page{e: e, data: data}
+	return &Page{e: e, Data: data}
 }
 
-func (p *Page) SetElements(el []any) *Page {
-	p.Elements = el
+func (p *Page) SetElements(es Elements) *Page {
+	p.Elements = es
 	return p
 }
 
 func NewButton(data ButtonData, e EventHandler) *Button {
-	return &Button{e: e, data: data}
+	return &Button{e: e, Data: data}
 }
 
 func NewSidebar(btns []*Button) *Sidebar {

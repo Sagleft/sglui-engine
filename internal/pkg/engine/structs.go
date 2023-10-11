@@ -16,13 +16,21 @@ type PageData struct {
 	Tag   string `json:"tag"`
 }
 
-type Page struct {
-	e    EventHandler
-	data PageData
+// Button, Sidebar, List, etc
+type Element struct {
+	Type string `json:"type"`
+	Data any    `json:"data"`
+}
 
-	Elements []any
-	OnEnter  func()
-	OnLeave  func()
+type Elements []Element
+
+type Page struct {
+	e        EventHandler `json:"-"`
+	Data     PageData     `json:"data"`
+	Elements []Element    `json:"elements"`
+
+	OnEnter func() `json:"-"`
+	OnLeave func() `json:"-"`
 }
 
 type Pages []*Page
@@ -33,9 +41,9 @@ type ButtonData struct {
 }
 
 type Button struct {
-	e         EventHandler
-	data      ButtonData
-	OnPressed func()
+	e         EventHandler `json:"-"`
+	Data      ButtonData   `json:"data"`
+	OnPressed func()       `json:"-"`
 }
 
 type Buttons []*Button

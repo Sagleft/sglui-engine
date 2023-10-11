@@ -1,6 +1,8 @@
 package app
 
-import "tool/internal/pkg/engine"
+import (
+	"tool/internal/pkg/engine"
+)
 
 type application struct {
 	e   engine.EventHandler

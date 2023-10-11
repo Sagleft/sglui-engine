@@ -7,3 +7,8 @@ const (
 	DefaultWindowWidth  = 1280
 	DefaultWindowHeight = 720
 )
+
+const (
+	TypeButton  string = "button"
+	TypeSidebar string = "sidebar"
+)
